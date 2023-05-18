@@ -47,7 +47,9 @@ app.use(hpp({
       'ratingQuantity'
       , 'ratingsAverage'
       , 'maxGroupSize'
-      , 'difficulty']
+      , 'difficulty'
+      , 'price'
+      ]
   }
 ));
 
@@ -61,7 +63,7 @@ app.use((req, res, next) => {
 
 const tourRouter = require('./routes/tourRoutes');
 const userRouter = require('./routes/userRoutes');
-const whitelist = require('validator/es/lib/whitelist');
+
 
 
 app.use('/api/v1/tours', tourRouter);
