@@ -40,3 +40,18 @@ process.on('unhandledRejection', err => {
 });
 
 
+// process.on('unhandledRejection', (err) => {
+//     console.error('Unhandled Rejection:', err);
+//     // Perform any necessary cleanup and error handling
+//     // ...
+//     process.exit(1); // Terminate the process with a non-zero exit code
+// });
+//
+// process.on('uncaughtException', (err) => {
+//     console.error('Uncaught Exception:', err);
+//     // Perform any necessary cleanup and error handling
+//     // ...
+//     process.exit(1); // Terminate the process with a non-zero exit code
+// });
+
+

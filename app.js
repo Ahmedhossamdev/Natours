@@ -63,11 +63,12 @@ app.use((req, res, next) => {
 
 const tourRouter = require('./routes/tourRoutes');
 const userRouter = require('./routes/userRoutes');
-
+const reviewsRouter = require('./routes/reviewRoutes');
 
 
 app.use('/api/v1/tours', tourRouter);
 app.use('/api/v1/users', userRouter);
+app.use('/api/v1/reviews' , reviewsRouter);
 
 
 // Handling unhandled routes
@@ -79,5 +80,7 @@ app.all('*', (req, res, next) => {
 // Error Handling middleware
 app.use(globalErrorHandler);
 // 4) Start Server
-module.exports = app; 
- 
+module.exports = app;
+
+
+

@@ -121,8 +121,7 @@ const tourSchema = new mongoose.Schema({
       type: mongoose.Schema.ObjectId,
       ref: 'User'
     }
-  ]
-
+  ],
 },
 
   {
@@ -134,7 +133,13 @@ tourSchema.virtual('durationWeeks').get(function() {
   return this.duration / 7;
 });
 
-
+// Virtual populate
+tourSchema.virtual('reviews' , {
+  ref: 'Review', // name of the model connect to dataset
+  localField: '_id', // id of the current tour
+  foreignField: 'tour' // name of the field of another model (reviewModel)
+})
+//--------------------------------------------------------
 //DOCUMENT MIDDLEWARE : run before .save() and .create()
 tourSchema.pre('save', function(next) {
   this.slug = slugify(this.name, { lower: true });
@@ -152,6 +157,7 @@ tourSchema.pre('save', function(next) {
   next();
 
 });
+//--------------------------------------------------------
 tourSchema.post('save', function(doc, next) {
   console.log(doc);
   next();
