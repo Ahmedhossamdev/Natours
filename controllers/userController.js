@@ -6,7 +6,7 @@ const AppError = require('./../utils/appError');
 const jwt = require('jsonwebtoken');
 const { promisify } = require('util');
 const sendEmail = require('./../utils/email');
-
+const factory = require('./handlerFactory');
 
 
 const filterObj = (obj , ...allowedFields) => {
@@ -61,12 +61,17 @@ exports.deleteMe = catchAsync (async (req, res) => {
 });
 
 
-exports.deleteUser = (req, res , next) => {
-  res.status(500).json({
-    status: 'error',
-    message: 'This route is not yet defined !'
-  });
-}
+// exports.deleteUser = (req, res , next) => {
+//   res.status(500).json({
+//     status: 'error',
+//     message: 'This route is not yet defined !'
+//   });
+// }
+
+exports.deleteUser = factory.deleteOne(User);
+
+
+
 exports.updateMe = catchAsync ( async (req, res, next) => {
   // 1) Create error if user posts password data
   if (req.body.password || req.body.passwordConfirm) {
