@@ -139,6 +139,8 @@ tourSchema.virtual('reviews' , {
   localField: '_id', // id of the current tour
   foreignField: 'tour' // name of the field of another model (reviewModel)
 })
+
+
 //--------------------------------------------------------
 //DOCUMENT MIDDLEWARE : run before .save() and .create()
 tourSchema.pre('save', function(next) {
