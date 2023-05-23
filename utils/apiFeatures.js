@@ -43,7 +43,8 @@ class APIFeatures {
       //console.log(fields);
       //   query = query.select(name difficulty price); like this
       this.query = this.query.select(fields);
-    } else {
+    }
+    else {
       this.query = this.query.select('-__v');
     }
     return this;

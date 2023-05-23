@@ -1,13 +1,8 @@
 
 const User = require('./../models/userModel');
-const crypto = require('crypto');
 const catchAsync = require('./../utils/catchAsync');
 const AppError = require('./../utils/appError');
-const jwt = require('jsonwebtoken');
-const { promisify } = require('util');
-const sendEmail = require('./../utils/email');
 const factory = require('./handlerFactory');
-
 
 const filterObj = (obj , ...allowedFields) => {
   const newObj = {};
@@ -19,37 +14,14 @@ const filterObj = (obj , ...allowedFields) => {
   return newObj;
 }
 
-
-exports.getAllUsers = catchAsync(async (req, res, next) => {
-  const users = await User.find();
-
-  res.status(200).json({
-    status: 'success',
-    results: users.length,
-    date: {
-      users
-    }
-  });
-});
-exports.getUser = (req, res) => {
-  res.status(500).json({
-    status: 'error',
-    message: 'This route is not yet defined !'
-  });
-};
 exports.createUser = (req, res) => {
   res.status(500).json({
     status: 'error',
-    message: 'This route is not yet defined !'
+    message: 'This route is not yet defined! Please use signup instead'
   });
 };
 
-exports.updateUser = (req, res) => {
-  res.status(500).json({
-    status: 'error',
-    message: 'This route is not yet defined !'
-  });
-};
+
 
 exports.deleteMe = catchAsync (async (req, res) => {
   await User.findByIdAndUpdate(req.user.id , {active: false});
@@ -59,17 +31,6 @@ exports.deleteMe = catchAsync (async (req, res) => {
     data: null,
   });
 });
-
-
-// exports.deleteUser = (req, res , next) => {
-//   res.status(500).json({
-//     status: 'error',
-//     message: 'This route is not yet defined !'
-//   });
-// }
-
-exports.deleteUser = factory.deleteOne(User);
-
 
 
 exports.updateMe = catchAsync ( async (req, res, next) => {
@@ -92,3 +53,16 @@ exports.updateMe = catchAsync ( async (req, res, next) => {
   })
   // Rest of your code goes here
 });
+
+// Login in user pass the id to the req.params.id to pass it to factory function
+exports.getMe  = (req ,res , next) => {
+  req.params.id = req.user.id;
+  next();
+}
+
+
+
+exports.getAllUsers =  factory.getAll(User);
+exports.deleteUser = factory.deleteOne(User);
+exports.updateUser = factory.updateOne(User);
+exports.getUser = factory.getOne(User);

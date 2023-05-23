@@ -45,10 +45,12 @@ const { createReview } = require('../controllers/reviewController');
 
 
 
-router.route('/monthly-plan/:year').get(getMonthlyPlan);
+router
+  .route('/monthly-plan/:year')
+  .get(protect,restrictTo('admin' , 'lead-guide' , 'guide') , getMonthlyPlan);
+
+
 router.route('/tour-stats').get(getTourStats);
-
-
 
 
 
@@ -56,13 +58,15 @@ router.route('/tour-stats').get(getTourStats);
 router.route('/top-5-cheap').get(aliasTopTours,getAllTours);
 
 router.route('/')
-.get(protect,getAllTours)
-.post(createTour);
+.get(getAllTours)
+.post(protect,restrictTo('admin' , 'lead-guide'),createTour);
+
+
 
 router.route('/:id')
 .get(getTour)
 .delete(protect , restrictTo('admin' , 'lead-guide') , deleteTour)
-.patch(updateTour);
+.patch(protect,restrictTo('admin' , 'lead-guide') , updateTour);
 
 
 

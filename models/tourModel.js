@@ -128,6 +128,12 @@ const tourSchema = new mongoose.Schema({
   toJSON: { virtuals: true },
   toObject: { virtuals: true }
 });
+
+// 1 asc , -1 des
+// tourSchema.index({price: 1 });
+tourSchema.index({price: 1 , ratingsAverage :-1 });
+tourSchema.index({slug: 1});
+
 // Virtual properties
 tourSchema.virtual('durationWeeks').get(function() {
   return this.duration / 7;
@@ -139,6 +145,8 @@ tourSchema.virtual('reviews' , {
   localField: '_id', // id of the current tour
   foreignField: 'tour' // name of the field of another model (reviewModel)
 })
+
+
 //--------------------------------------------------------
 //DOCUMENT MIDDLEWARE : run before .save() and .create()
 tourSchema.pre('save', function(next) {
