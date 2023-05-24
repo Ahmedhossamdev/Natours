@@ -26,7 +26,7 @@ router.
 route('/:id')
   .get(getReview)
   .patch(restrictTo('user' , 'admin') , updateReview)
-  .delete(restrictTo('admin , user') , deleteReview);
+  .delete(restrictTo('admin' , 'user') , deleteReview);
 
 
 
