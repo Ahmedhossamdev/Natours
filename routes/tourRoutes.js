@@ -36,6 +36,8 @@ const {
   aliasTopTours,
   getTourStats,
   getMonthlyPlan,
+  getToursWithin,
+  getDistances,
 } = require('./../controllers/tourController');
 
 
@@ -56,6 +58,16 @@ router.route('/tour-stats').get(getTourStats);
 
 //router.param('id', checkID);
 router.route('/top-5-cheap').get(aliasTopTours,getAllTours);
+
+
+router
+  .route('/tours-within/:distance/center/:latlng/unit/:unit')
+  .get(getToursWithin);
+
+router.route('/distances/:latlng/unit/:unit').get(getDistances)
+// /tours-distance?distance=223,center=-40,45&unit=mi
+// /tours-distance/223/center/-40,45/unit/mi a lot cleaner
+
 
 router.route('/')
 .get(getAllTours)
