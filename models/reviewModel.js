@@ -33,6 +33,9 @@ const reviewSchema = new mongoose.Schema({
     toObject: { virtuals: true }
   });
 
+
+reviewSchema.index({tour : 1 , user : 1} , {unique: true});
+
 // TODO search about populate , photo
 reviewSchema.pre(/^find/, function(next) {
   // this.populate({
@@ -97,7 +100,7 @@ reviewSchema.pre(/^findOneAnd/ ,async function(next){
   next();
 })
 
-reviewSchema.post(/^findOneAnd/ ,async function(next){
+reviewSchema.post(/^findOneAnd/  ,async function(next){
   // await this.findOne() // does not work here query has already excuted !
   await this.r.constructor.calcAverageRatings(this.r.tour);
 });
