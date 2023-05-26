@@ -1,15 +1,22 @@
+const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
-const app = express();
+
 const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
 
 
+const app = express();
+app.set('view engine' , 'pug');
+
+
+app.set('views' , path.join(__dirname, 'views'));
+app.use(express.static(path.join(__dirname, 'public')));
 // 1) MIDDLEWARES
 
 //Security http headers
@@ -31,7 +38,7 @@ app.use(express.json({ limit: '10kb' }));
 
 // Serving static files
 app.use(express.json()); //middleware function can modify incoming request data json to native javascript
-app.use(express.static(`${__dirname}/public`));
+
 
 // Data sanitization against noSql query injection
 app.use(mongoSanitize()); // remove all $
@@ -60,12 +67,16 @@ app.use((req, res, next) => {
   next();
 });
 
-
+const viewRouter = require('./routes/viewRoutes');
 const tourRouter = require('./routes/tourRoutes');
 const userRouter = require('./routes/userRoutes');
 const reviewsRouter = require('./routes/reviewRoutes');
 
 
+
+
+
+app.use('/', viewRouter);
 app.use('/api/v1/tours', tourRouter);
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/reviews' , reviewsRouter);
