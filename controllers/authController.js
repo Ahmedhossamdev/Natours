@@ -80,13 +80,11 @@ exports.protect = catchAsync(async (req, res, next) => {
   let token;
   if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
     token = req.headers.authorization.split(' ')[1];
-  } else if (req.cookies.jwt) {
+  }
+  else if (req.cookies.jwt && req.cookies.jwt !== 'loggedout') {
     token = req.cookies.jwt;
   }
-  if (!token) {
-    return next(new AppError('You are not logged in Please login to get access', 401)
-    );
-  }
+  if (!token) return res.redirect('/');
 
   // 2) Verification token
   const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
@@ -105,6 +103,7 @@ exports.protect = catchAsync(async (req, res, next) => {
 
   // Grant acess to protected route
   req.user = currentUser;
+  res.locals.user = currentUser;
   next();
 });
 
