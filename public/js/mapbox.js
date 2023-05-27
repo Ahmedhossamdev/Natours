@@ -2,25 +2,23 @@
 
 
 
-const locations =JSON.parse(document.getElementById('map').dataset.locations);
-console.log(locations);
+export const displayMap = (locations) =>{
 
+  mapboxgl.accessToken = 'pk.eyJ1IjoiYWhtZWQ3b3NzYW0iLCJhIjoiY2xpNG95enBlMThjazN2bHB6eHVocHppZCJ9.3DuW5t8Jlrn3jwpikLVF3A';
 
-mapboxgl.accessToken = 'pk.eyJ1IjoiYWhtZWQ3b3NzYW0iLCJhIjoiY2xpNG95enBlMThjazN2bHB6eHVocHppZCJ9.3DuW5t8Jlrn3jwpikLVF3A';
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/ahmed7ossam/cli4u2all02nx01qu4zcvf8it',
+    scrollZoom : false,
+    // center :[-118.113491 ,34.111745],
+    zoom : 10
+  });
 
-var map = new mapboxgl.Map({
-  container: 'map',
-  style: 'mapbox://styles/ahmed7ossam/cli4u2all02nx01qu4zcvf8it',
-  scrollZoom : false,
-  // center :[-118.113491 ,34.111745],
-   zoom : 10
-});
-
-const bounds = new mapboxgl.LngLatBounds();
+  const bounds = new mapboxgl.LngLatBounds();
 
 
 // every location will contain this features
-locations.forEach(loc =>{
+  locations.forEach(loc =>{
     // Create marker
     const el = document.createElement('div');
     el.className = 'marker';
@@ -42,14 +40,15 @@ locations.forEach(loc =>{
       .addTo(map);
     // Extend map bounds to include current location
     bounds.extend(loc.coordinates);
-});
+  });
 
-map.fitBounds(bounds, {
-  padding:{
-    top:200,
-    bottom : 150,
-    left: 100,
-    right : 100,
-  },
+  map.fitBounds(bounds, {
+    padding:{
+      top:200,
+      bottom : 150,
+      left: 100,
+      right : 100,
+    },
 
-});
+  });
+}

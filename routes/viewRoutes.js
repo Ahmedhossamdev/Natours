@@ -14,10 +14,8 @@ const {
 router.use(isLoggedIn);
 
 router.get('/' , getOverview);
-router.get('/tour/:tourSlug', getTour)
-
-
-router.get('/login' , getLoginForm);
+router.get('/tour/:tourSlug' , getTour);
+router.get('/login' ,  getLoginForm);
 
 
 

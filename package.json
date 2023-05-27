@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@babel/polyfill": "^7.12.1",
     "axios": "^1.4.0",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.6",
@@ -17,7 +18,6 @@
     "nodemailer": "^6.9.2",
     "pug": "^3.0.2",
     "slugify": "^1.6.5",
-    "supervisor": "^0.12.0",
     "validator": "^13.9.0",
     "xss": "^1.0.14",
     "xss-clean": "^0.1.1"
@@ -31,8 +31,9 @@
     "eslint-plugin-node": "^8.0.1",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
-    "parcel-bundler": "^1.8.1",
-    "prettier": "^1.17.0"
+    "parcel-bundler": "^1.12.3",
+    "prettier": "^1.17.0",
+    "supervisor": "^0.12.0"
   },
   "name": "natours",
   "version": "1.0.0",
@@ -40,8 +41,10 @@
   "main": "app.js",
   "scripts": {
     "start": "supervisor server.js",
-    "start:prod": "NODE_ENV =production supervisor server.js",
-    "debug": "ndb server.js"
+    "start:prod": "NODE_ENV=production supervisor server.js",
+    "debug": "ndb server.js",
+    "watch:js": "parcel watch --no-hmr  ./public/js/index.js --out-dir ./public/js --out-file bundle.js",
+    "build:js": "parcel watch --no-hmr  ./public/js/index.js --out-dir ./public/js --out-file bundle.js"
   },
   "author": "Ahmed7ossam",
   "license": "ISC"
