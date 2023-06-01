@@ -31,27 +31,27 @@ const server = app.listen(port, () => {
 });
 
 
-process.on('unhandledRejection', err => {
-    console.log(err.name, err.message);
-    console.log('UNHANDIER REJECTION! (: Shutting down');
-    server.close(()  => {
-        process.exit(1);
-    });
+// process.on('unhandledRejection', err => {
+//     console.log(err.name, err.message);
+//     console.log('UNHANDIER REJECTION! (: Shutting down');
+//     server.close(()  => {
+//         process.exit(1);
+//     });
+// });
+
+
+process.on('unhandledRejection', (err) => {
+    console.error('Unhandled Rejection:', err);
+    // Perform any necessary cleanup and error handling
+    // ...
+    process.exit(1); // Terminate the process with a non-zero exit code
 });
 
-
-// process.on('unhandledRejection', (err) => {
-//     console.error('Unhandled Rejection:', err);
-//     // Perform any necessary cleanup and error handling
-//     // ...
-//     process.exit(1); // Terminate the process with a non-zero exit code
-// });
-//
-// process.on('uncaughtException', (err) => {
-//     console.error('Uncaught Exception:', err);
-//     // Perform any necessary cleanup and error handling
-//     // ...
-//     process.exit(1); // Terminate the process with a non-zero exit code
-// });
+process.on('uncaughtException', (err) => {
+    console.error('Uncaught Exception:', err);
+    // Perform any necessary cleanup and error handling
+    // ...
+    process.exit(1); // Terminate the process with a non-zero exit code
+});
 
 

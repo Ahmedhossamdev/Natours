@@ -1,8 +1,8 @@
 const express = require('express');
-const router = express.Router();
-const {getAllUsers , getUser , updateUser , deleteUser , createUser , updateMe , deleteMe , getMe} = require('./../controllers/userController');
-const{signup , login , forgotPassword , resetPassword , updatePassword , protect ,restrictTo ,logout} = require('./../controllers/authController');
 
+const router = express.Router();
+const {getAllUsers , getUser , updateUser , deleteUser , createUser , updateMe , deleteMe , getMe , uploadUserPhoto} = require('./../controllers/userController');
+const{signup , login , forgotPassword , resetPassword , updatePassword , protect ,restrictTo ,logout} = require('./../controllers/authController');
 
 
 router.get('/me' , protect , getMe , getUser);
@@ -10,16 +10,18 @@ router.get('/me' , protect , getMe , getUser);
 router.post('/signup' , signup);
 router.post('/login' , login);
 router.get('/logout' , logout);
+
+
 router.use(protect);
+
+
 router.post('/forgotPassword' , forgotPassword);
 router.patch('/resetPassword/:token' , resetPassword);
 
 
 
-
-
 router.patch('/updateMyPassword' , updatePassword);
-router.patch('/updateMe' , updateMe);
+router.patch('/updateMe', uploadUserPhoto , updateMe);
 router.delete('/deleteMe' , deleteMe);
 
 // Rest format

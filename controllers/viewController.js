@@ -16,6 +16,7 @@ exports.getOverview = catchAsync(async (req, res) => {
 });
 
 
+// Details page
 exports.getTour = catchAsync(async (req, res, next) => {
   // 1) get the data, for the requested tour (including review and guides)
   const tourSlug = req.params.tourSlug;
@@ -38,6 +39,8 @@ exports.getTour = catchAsync(async (req, res, next) => {
   });
 });
 
+
+// Login page
 exports.getLoginForm = (req, res) => {
   res.status(200).render('login', {
     title: 'Log into you account'
