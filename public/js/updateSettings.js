@@ -14,6 +14,9 @@ export const updateSettings = async (data , type) => {
     // res from controller
     if (res.data.status === 'success'){
       showAlert('success', `${type.toUpperCase()} updated successfully`);
+      window.setTimeout(() =>{
+        location.reload();
+      } , 1000);
     }
     console.log(res);
   } catch (err) {

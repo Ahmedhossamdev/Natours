@@ -38,6 +38,8 @@ const {
   getMonthlyPlan,
   getToursWithin,
   getDistances,
+  uploadTourImages,
+  resizeTourImages,
 } = require('./../controllers/tourController');
 
 
@@ -52,19 +54,25 @@ router
   .get(protect,restrictTo('admin' , 'lead-guide' , 'guide') , getMonthlyPlan);
 
 
-router.route('/tour-stats').get(getTourStats);
+router
+  .route('/tour-stats')
+  .get(getTourStats);
 
 
 
 //router.param('id', checkID);
-router.route('/top-5-cheap').get(aliasTopTours,getAllTours);
+router
+  .route('/top-5-cheap')
+  .get(aliasTopTours,getAllTours);
 
 
 router
   .route('/tours-within/:distance/center/:latlng/unit/:unit')
   .get(getToursWithin);
 
-router.route('/distances/:latlng/unit/:unit').get(getDistances)
+router
+  .route('/distances/:latlng/unit/:unit')
+  .get(getDistances)
 // /tours-distance?distance=223,center=-40,45&unit=mi
 // /tours-distance/223/center/-40,45/unit/mi a lot cleaner
 
@@ -78,7 +86,7 @@ router.route('/')
 router.route('/:id')
 .get(getTour)
 .delete(protect , restrictTo('admin' , 'lead-guide') , deleteTour)
-.patch(protect,restrictTo('admin' , 'lead-guide') , updateTour);
+.patch(protect,restrictTo('admin' , 'lead-guide') , uploadTourImages , resizeTourImages ,updateTour);
 
 
 
