@@ -5,7 +5,7 @@ const catchAsync = require('./../utils/catchAsync');
 const AppError = require('./../utils/appError');
 
 const { promisify } = require('util');
-const sendEmail = require('./../utils/email');
+const Email = require('./../utils/email');
 
 
 const createSendToken = (user, statusCode, res) => {
@@ -42,6 +42,10 @@ exports.signup = catchAsync(async (req, res, next) => {
     passwordChangeAt: req.body.passwordChangeAt,
     role: req.body.role
   });
+  const url = `${req.protocol}://${req.host}:3000/me`;
+  console.log(url);
+  await new Email(newUser , url).sendWelcome();
+
   createSendToken(newUser, 201, res);
 });
 
@@ -163,11 +167,12 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
   const message = `Forgot your password? Submit A Patch requset with your new password and passwordConfirm to :
   ${resetURL}.\nIf you didn't forgot your password, please ignore this email!`;
   try {
-    await sendEmail({
-      email: user.email,
-      subject: 'Your password reset token (valid for 10 min)',
-      message
-    });
+    // await sendEmail({
+    //   email: user.email,
+    //   subject: 'Your password reset token (valid for 10 min)',
+    //   message
+    // });
+
     res.status(200).json({
       stats: 'success',
       message: 'Token sent to email!'
