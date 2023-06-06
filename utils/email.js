@@ -14,7 +14,15 @@ module.exports = class Email {
 
   newTransport() {
     if (process.env.NODE_ENV === 'production') {
-      return 1;
+
+       return nodemailer.createTransport({
+         host : 'smtp-relay.sendinblue.com',
+         port: '587',
+         auth :{
+           user: process.env.SENDINBLUE_USERNAME,
+           pass: process.env.SENDINBLUE_PASSWORD,
+         },
+       });
     }
 
     return nodemailer.createTransport({
@@ -56,6 +64,10 @@ module.exports = class Email {
   // this is useful so we can create multiple different subjects
   async sendWelcome(){
    await this.send('welcome' , 'Welocome to the Natours Family');
+  }
+
+  async sendPasswordReset(){
+    await this.send('passwordReset' , 'Your password reset token (vaild for only 10 minutes)');
   }
 };
 
