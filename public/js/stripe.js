@@ -1,14 +1,24 @@
 import axios from 'axios';
+import Stripe from 'stripe';
+import { showAlert } from './alerts';
 
-const stripe = Stripe('pk_test_51NFrrJEYpHjuu9ZWnbjq2066vJzeI6DCSc76wV03fKXzA9A5wIop96KnTM4iXmf3Qqg2VctogoKm89MP8KIi86k600RnZVMA0G');
 
 
 export const bookTour = async tourId => {
-  // 1) Get Checkout session from API
-  const session = await axios(`http://127.0.0.1:3000/api/v1/bookings/checkout-session/${tourId}`);
-  console.log(session);
-  // 2) Create checkout form + charage credit card
+  try {
+    const stripe = new Stripe('pk_test_51NFrrJEYpHjuu9ZWnbjq2066vJzeI6DCSc76wV03fKXzA9A5wIop96KnTM4iXmf3Qqg2VctogoKm89MP8KIi86k600RnZVMA0G');
 
+    // 1) Get Checkout session from API
+    const session = await axios(`http://127.0.0.1:3000/api/v1/bookings/checkout-session/${tourId}`);
+    console.log(session);
+    // 2) Create checkout form + charge credit card
+    // await stripe.redirectToCheckout({
+    //   sessionId: session.data.id,
+    // });
 
-
-}
+    window.location.replace(session.data.session.url);
+  } catch (err) {
+    console.log(err);
+    showAlert('error', err);
+  }
+};
