@@ -44,6 +44,9 @@
   "version": "1.0.0",
   "description": "Learning node , express and mongoDB",
   "main": "app.js",
+  "target": {
+    "main" : false
+  },
   "engines": {
     "node": "14.x"
   },
