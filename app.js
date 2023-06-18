@@ -14,18 +14,19 @@ const xss = require('xss-clean');
 const hpp = require('hpp');
 const app = express();
 
-
+app.enable('trust proxy');
 
 app.set('view engine' , 'pug');
 app.set('views' , path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 
+
+
+
 // 1) MIDDLEWARES
 // Security http headers
 app.use(helmet());
-
-
 
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
