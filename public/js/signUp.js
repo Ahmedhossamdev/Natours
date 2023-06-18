@@ -18,11 +18,13 @@ export const signUp = async (name, email , password , passwordConfirm) => {
     });
     if (res.data.status === 'success'){
       showAlert('success', 'Sign up successfully');
-      window.setTimeout(() =>{
-        location.assign('/')
-      }, 500);
+      // window.setTimeout(() =>{
+      //   location.assign('/')
+      // }, 500);
+      location.reload(true);
     }
-  } catch (err) {
+  }
+  catch (err) {
     showAlert('error',err.response.data.message);
   }
 };
