@@ -1,3 +1,7 @@
 node_modules/
-*env
-.cache
+*.env
+.cache/
+config/
+dist
+bundle.js*
+package-lock.json
