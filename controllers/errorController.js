@@ -41,7 +41,7 @@ const sendErrorDev = (err, req, res) => {
   console.error('ERROR 💥', err);
   return res.status(err.statusCode).render('error', {
     title: 'Something went wrong!',
-    msg: err.message
+    message: err.message
   });
 };
 
@@ -78,7 +78,7 @@ const sendErrorProd = (err, req, res) => {
     console.log(err);
     return res.status(err.statusCode).render('error', {
       title: 'Something went wrong!',
-      msg: err.message
+      message: err.message
     });
   }
   // B) Programming or other unknown error: don't leak error details
@@ -87,7 +87,7 @@ const sendErrorProd = (err, req, res) => {
   // 2) Send generic message
   return res.status(err.statusCode).render('error', {
     title: 'Something went wrong!',
-    msg: 'Please try again later.'
+    message: 'Please try again later.'
   });
 };
 
