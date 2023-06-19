@@ -43,11 +43,11 @@ exports.signup = catchAsync(async (req, res, next) => {
     passwordChangeAt: req.body.passwordChangeAt,
     role: req.body.role
   });
+
+
   const url = `${req.protocol}://${req.hostname}:3000/me`;
-  console.log(url);
-
+  // console.log(url);
   await new Email(newUser , url).sendWelcome();
-
   createSendToken(newUser, 201, req , res);
 });
 
@@ -176,8 +176,7 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
   //   const message = `Forgot your password? Submit A Patch requset with your new password and passwordConfirm to :
   // ${resetURL}.\nIf you didn't forgot your password, please ignore this email!`;
 
-    await new   Email(user , resetURL).sendPasswordReset();
-
+    await new  Email(user , resetURL).sendPasswordReset();
     res.status(200).json({
       stats: 'success',
       message: 'Token sent to email!'

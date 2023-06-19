@@ -56,7 +56,7 @@
     "start:prod": "NODE_ENV=production supervisor server.js",
     "debug": "ndb server.js",
     "watch:js": "parcel watch --no-hmr  ./public/js/index.js --out-dir ./public/js --out-file bundle.js",
-    "build:js": "parcel build ./public/js/index.js --out-dir ./public/js --out-file bundle.js"
+    "build:js": "parcel build   ./public/js/index.js --out-dir ./public/js --out-file bundle.js"
   },
   "author": "Ahmed7ossam",
   "license": "ISC"

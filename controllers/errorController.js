@@ -8,9 +8,7 @@ const handleCastErrorDB = err => {
 };
 
 const handleDuplicateFieldsDB = err => {
-  const value = err.errmsg.match(/(["'])(\\?.)*?\1/)[0];
-  console.log(value);
-
+  const value = err.message.match(/(["'])(\\?.)*?\1/)[0];
   const message = `Duplicate field value: ${value}. Please use another value!`;
   return new AppError(message, 400);
 };
@@ -47,6 +45,9 @@ const sendErrorDev = (err, req, res) => {
   });
 };
 
+
+
+
 const sendErrorProd = (err, req, res) => {
   // A) API
   if (req.originalUrl.startsWith('/api')) {
@@ -68,6 +69,9 @@ const sendErrorProd = (err, req, res) => {
     });
   }
 
+
+
+
   // B) RENDERED WEBSITE
   // A) Operational, trusted error: send message to client
   if (err.isOperational) {
@@ -86,6 +90,10 @@ const sendErrorProd = (err, req, res) => {
     msg: 'Please try again later.'
   });
 };
+
+
+
+
 
 module.exports = (err, req, res, next) => {
   // console.log(err.stack);

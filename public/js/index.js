@@ -1,5 +1,6 @@
 import '@babel/polyfill';
 import { login, logout } from './login';
+import {resetPassword} from './resetPassword';
 import { signUp } from './signUp';
 import { displayMap } from './mapbox';
 import { updateSettings } from './updateSettings';
@@ -11,6 +12,8 @@ const mapBox = document.getElementById('map');
 const loginForm = document.querySelector('.form--login');
 const logOutBtn = document.querySelector('.nav__el--logout');
 const signupForm = document.querySelector('.form--signup');
+const resetPasswordForm = document.querySelector('.form--signup');
+
 
 const userDataForm = document.querySelector('.form-user-data');
 const userPasswordForm = document.querySelector('.form-user-password');
@@ -39,6 +42,25 @@ if (signupForm) {
     document.querySelector('.btn--green').textContent = 'SignUp';
 
   });
+}
+
+if (resetPasswordForm){
+
+    signupForm.addEventListener('submit', async e => {
+      e.preventDefault();
+
+      document.querySelector('.btn--green').textContent = 'Loading...';
+
+      const password = document.getElementById('password').value;
+      const password_confirm = document.getElementById('password-confirm').value;
+
+      const url = window.location.href;
+      const token = url.split('/').pop(); // Extract the token from the URL
+
+      await resetPassword(password, password_confirm , token);
+
+      document.querySelector('.btn--green').textContent = 'Resetting password';
+    });
 }
 
 if (loginForm) {
