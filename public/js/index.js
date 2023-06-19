@@ -1,5 +1,6 @@
 import '@babel/polyfill';
 import { login, logout } from './login';
+import { forgotPassword } from './forgotPassword';
 import {resetPassword} from './resetPassword';
 import { signUp } from './signUp';
 import { displayMap } from './mapbox';
@@ -7,12 +8,17 @@ import { updateSettings } from './updateSettings';
 import { bookTour } from './stripe';
 
 
+
 // DOM ELEMENTS
 const mapBox = document.getElementById('map');
+
 const loginForm = document.querySelector('.form--login');
 const logOutBtn = document.querySelector('.nav__el--logout');
+
 const signupForm = document.querySelector('.form--signup');
-const resetPasswordForm = document.querySelector('.form--signup');
+
+const resetPasswordForm = document.querySelector('.form--resetPassword');
+const forgotPasswordForm = document.querySelector('.form--forgotPassword');
 
 
 const userDataForm = document.querySelector('.form-user-data');
@@ -40,20 +46,26 @@ if (signupForm) {
 
   });
 }
+if (forgotPasswordForm){
+
+  forgotPasswordForm.addEventListener('submit', async e => {
+
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    await forgotPassword(email);
+
+  });
+}
+
 
 if (resetPasswordForm){
 
-    signupForm.addEventListener('submit', async e => {
+    resetPasswordForm.addEventListener('submit', async e => {
       e.preventDefault();
-
-      document.querySelector('.btn--green').textContent = 'Loading...';
-
       const password = document.getElementById('password').value;
       const password_confirm = document.getElementById('password-confirm').value;
 
-      const url = window.location.href;
-      const token = url.split('/').pop(); // Extract the token from the URL
-      await resetPassword(password, password_confirm , token);
+      await resetPassword(password, password_confirm);
 
     });
 }

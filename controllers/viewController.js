@@ -53,6 +53,12 @@ exports.getResetPassword = (req , res) =>{
     title : 'Reset Password',
   })
 }
+
+exports.getForgotPassword = (req , res) =>{
+  res.status(200).render('forgotpassword', {
+    title : 'Forget Password',
+  })
+}
 // Login page
 exports.getLoginForm = (req, res) => {
   res.status(200).render('login', {

@@ -1246,7 +1246,36 @@ body {
   padding: 5rem 7rem;
   border-radius: 5px;
 }
+.resetPassword-form {
+  margin: 0 auto;
+  max-width: 55rem;
+  background-color: #fff;
+  -webkit-box-shadow: 0 2.5rem 8rem 2rem rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2.5rem 8rem 2rem rgba(0, 0, 0, 0.06);
+  padding: 5rem 7rem;
+  border-radius: 5px;
+}
 
+.forgotPassword-form {
+  margin: 0 auto;
+  max-width: 55rem;
+  background-color: #fff;
+  -webkit-box-shadow: 0 2.5rem 8rem 2rem rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2.5rem 8rem 2rem rgba(0, 0, 0, 0.06);
+  padding: 5rem 7rem;
+  border-radius: 5px;
+}
+
+.forgot-password-link {
+  margin-left: 6px;
+}
+
+
+@media (max-width: 32em) {
+  .resetPasswordForm-form {
+    padding: 5rem 1.2rem;
+  }
+}
 @media (max-width: 32em) {
   .signup-form {
     padding: 5rem 1.2rem;

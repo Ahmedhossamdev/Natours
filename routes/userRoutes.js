@@ -12,13 +12,13 @@ router.post('/login' , login);
 router.get('/logout' , logout);
 
 
-router.use(protect);
+
 
 
 router.post('/forgotPassword' , forgotPassword);
 router.patch('/resetPassword/:token' , resetPassword);
 
-
+router.use(protect);
 
 router.patch('/updateMyPassword' , updatePassword);
 router.patch('/updateMe',  uploadUserPhoto ,resizeUserPhoto  ,  updateMe);

@@ -153,6 +153,7 @@ exports.restrictTo = (...roles) => {
 
 
 exports.forgotPassword = catchAsync(async (req, res, next) => {
+  console.log(req.body.email)
   // 1) get user based on Posted Email
   const user = await User.findOne({ email: req.body.email });
   if (!user) {
@@ -176,11 +177,12 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
   // ${resetURL}.\nIf you didn't forgot your password, please ignore this email!`;
 
     await new  Email(user , resetURL).sendPasswordReset();
-    res.status(200).json({
+    return res.status(200).json({
       stats: 'success',
       message: 'Token sent to email!'
     });
-  } catch (err) {
+  }
+  catch (err) {
     user.createPasswordResetToken = undefined;
     user.PasswordResetExpires = undefined;
     await user.save({ validateBeforeSave: false });
