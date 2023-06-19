@@ -65,7 +65,7 @@ if (resetPasswordForm) {
     const password_confirm = document.getElementById('password-confirm').value;
 
     const url = window.location.href;
-    const regex = /\/resetpassword\/(.+)/;
+    const regex = /\/resetPassword\/(.+)/;
     const match = url.match(regex);
     const token = match ? match[1] : null;
 
@@ -74,6 +74,7 @@ if (resetPasswordForm) {
     await resetPassword(password, password_confirm, token);
   });
 }
+
 
 if (loginForm) {
   loginForm.addEventListener('submit', async e => {
