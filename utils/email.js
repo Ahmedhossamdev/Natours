@@ -4,7 +4,8 @@ const {htmlToText} = require('html-to-text');
 
 // new Email(user , url).sendWelcome();
 module.exports = class Email {
-  // Function will going to run when new object created from this class
+
+  // Function will be going to run when new object created from this class
   constructor(user , url) {
     this.to = user.email;
     this.firstName = user.name.split(' ')[0];
@@ -14,10 +15,10 @@ module.exports = class Email {
 
   newTransport() {
     if (process.env.NODE_ENV === 'production') {
-
        return nodemailer.createTransport({
-         host : 'smtp-relay.sendinblue.com',
-         port:  '587',
+         // host : 'smtp-relay.sendinblue.com',
+         // port:  '587',
+         service: 'SendinBlue',
          auth :{
            user: process.env.SENDINBLUE_USERNAME,
            pass: process.env.SENDINBLUE_PASSWORD,
@@ -63,7 +64,7 @@ module.exports = class Email {
 
   // this is useful so we can create multiple different subjects
   async sendWelcome(){
-   await this.send('welcome' , 'Welocome to the Natours Family');
+   await this.send('welcome' , 'Welcome to the Natours Family');
   }
 
   async sendPasswordReset(){

@@ -8,14 +8,15 @@ const { promisify } = require('util');
 const Email = require('./../utils/email');
 
 
-const createSendToken = (user, statusCode,req ,res) => {
+const createSendToken = (user, statusCode, req ,res) => {
   const token = signToken(user._id);
 
 
   res.cookie('jwt', token, {
       expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000),
       httpOnly: true,
-      secure :(req.secure || req.headers('x-forwarded-photo') === 'https')
+      secure: (req.secure || req.headers['x-forwarded-photo'] === 'https')
+
   });
   // remove password from the output
   user.password = undefined;
@@ -44,6 +45,7 @@ exports.signup = catchAsync(async (req, res, next) => {
   });
   const url = `${req.protocol}://${req.hostname}:3000/me`;
   console.log(url);
+
   await new Email(newUser , url).sendWelcome();
 
   createSendToken(newUser, 201, req , res);
