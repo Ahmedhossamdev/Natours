@@ -47,6 +47,12 @@ exports.getSignUp = (req , res) =>{
      title : 'Sign Up',
    })
 }
+
+exports.getResetPassword = (req , res) =>{
+  res.status(200).render('resetPassword', {
+    title : 'Reset Password',
+  })
+}
 // Login page
 exports.getLoginForm = (req, res) => {
   res.status(200).render('login', {

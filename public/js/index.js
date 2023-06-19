@@ -35,11 +35,8 @@ if (signupForm) {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     const password_confirm = document.getElementById('password-confirm').value;
-
-
     await signUp(name, email, password, password_confirm);
 
-    document.querySelector('.btn--green').textContent = 'SignUp';
 
   });
 }
@@ -56,10 +53,8 @@ if (resetPasswordForm){
 
       const url = window.location.href;
       const token = url.split('/').pop(); // Extract the token from the URL
-
       await resetPassword(password, password_confirm , token);
 
-      document.querySelector('.btn--green').textContent = 'Resetting password';
     });
 }
 

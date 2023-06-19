@@ -8,10 +8,11 @@ const {
   updateUserData,
   getMyTours,
   getSignUp,
+  getResetPassword,
 } = require('../controllers/viewController');
 const {
   protect,
-  isLoggedIn
+  isLoggedIn, resetPassword
 } = require('../controllers/authController')
 
 const {
@@ -23,6 +24,7 @@ router.get('/' , isLoggedIn , creatBookingCheckout , getOverview);
 router.get('/tour/:tourSlug' , isLoggedIn ,getTour);
 router.get('/signup' , isLoggedIn ,getSignUp);
 router.get('/login' , isLoggedIn ,getLoginForm);
+router.get('/resetPassword/:token' , getResetPassword);
 router.get('/me', protect ,getAccount)
 router.get('/my-tours', protect , getMyTours);
 
