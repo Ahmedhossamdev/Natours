@@ -49,7 +49,7 @@ exports.getSignUp = (req , res) =>{
 }
 
 exports.getResetPassword = (req , res) =>{
-  res.status(200).render('resetPassword', {
+  res.status(200).render('resetpassword', {
     title : 'Reset Password',
   })
 }
