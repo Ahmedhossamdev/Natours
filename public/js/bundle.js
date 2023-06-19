@@ -12133,7 +12133,7 @@ var resetPassword = /*#__PURE__*/function () {
           _context.next = 3;
           return (0, _axios.default)({
             method: 'PATCH',
-            url: "/api/v1/users/resetPassword/",
+            url: "/api/v1/users/resetPassword/".concat(token),
             data: {
               password: password,
               passwordConfirm: passwordConfirm
@@ -51518,16 +51518,21 @@ if (forgotPasswordForm) {
 if (resetPasswordForm) {
   resetPasswordForm.addEventListener('submit', /*#__PURE__*/function () {
     var _ref3 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3(e) {
-      var password, password_confirm;
+      var password, password_confirm, url, regex, match, token;
       return _regeneratorRuntime().wrap(function _callee3$(_context3) {
         while (1) switch (_context3.prev = _context3.next) {
           case 0:
             e.preventDefault();
             password = document.getElementById('password').value;
             password_confirm = document.getElementById('password-confirm').value;
-            _context3.next = 5;
-            return (0, _resetPassword.resetPassword)(password, password_confirm);
-          case 5:
+            url = window.location.href;
+            regex = /\/resetpassword\/(.+)/;
+            match = url.match(regex);
+            token = match ? match[1] : null;
+            console.log(token);
+            _context3.next = 10;
+            return (0, _resetPassword.resetPassword)(password, password_confirm, token);
+          case 10:
           case "end":
             return _context3.stop();
         }

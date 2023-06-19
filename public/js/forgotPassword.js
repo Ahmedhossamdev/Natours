@@ -16,7 +16,7 @@ export const forgotPassword = async (email) => {
       showAlert('success', 'Email sent successfully');
       window.setTimeout(() =>{
         location.assign('/')
-      },1000)
+      }, 1000);
     }
   }
   catch (err) {

@@ -16,7 +16,6 @@ const createSendToken = (user, statusCode, req ,res) => {
       expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000),
       httpOnly: true,
       secure: (req.secure || req.headers['x-forwarded-photo'] === 'https')
-
   });
   // remove password from the output
   user.password = undefined;
@@ -153,7 +152,6 @@ exports.restrictTo = (...roles) => {
 
 
 exports.forgotPassword = catchAsync(async (req, res, next) => {
-  console.log(req.body.email)
   // 1) get user based on Posted Email
   const user = await User.findOne({ email: req.body.email });
   if (!user) {
@@ -171,11 +169,9 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
     //   message
     // });
 
-    const resetURL = `${req.protocol}://${req.get('host')}/api/v1/users/resetPassword/${resetToken}}`;
-
+    const resetURL = `${req.protocol}://${req.get('host')}/resetPassword/${resetToken}}`;
   //   const message = `Forgot your password? Submit A Patch requset with your new password and passwordConfirm to :
   // ${resetURL}.\nIf you didn't forgot your password, please ignore this email!`;
-
     await new  Email(user , resetURL).sendPasswordReset();
     return res.status(200).json({
       stats: 'success',

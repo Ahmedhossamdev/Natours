@@ -58,16 +58,21 @@ if (forgotPasswordForm){
 }
 
 
-if (resetPasswordForm){
+if (resetPasswordForm) {
+  resetPasswordForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const password = document.getElementById('password').value;
+    const password_confirm = document.getElementById('password-confirm').value;
 
-    resetPasswordForm.addEventListener('submit', async e => {
-      e.preventDefault();
-      const password = document.getElementById('password').value;
-      const password_confirm = document.getElementById('password-confirm').value;
+    const url = window.location.href;
+    const regex = /\/resetpassword\/(.+)/;
+    const match = url.match(regex);
+    const token = match ? match[1] : null;
 
-      await resetPassword(password, password_confirm);
+    console.log(token);
 
-    });
+    await resetPassword(password, password_confirm, token);
+  });
 }
 
 if (loginForm) {
