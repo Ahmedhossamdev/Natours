@@ -43,7 +43,7 @@ if (signupForm) {
     const password_confirm = document.getElementById('password-confirm').value;
     await signUp(name, email, password, password_confirm);
 
-
+    document.querySelector('.btn--green').textContent = 'Signup';
   });
 }
 if (forgotPasswordForm){
