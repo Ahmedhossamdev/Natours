@@ -27,3 +27,4 @@ export const signUp = async (name, email , password , passwordConfirm) => {
     showAlert('error',err.response.data.message);
   }
 };
+``

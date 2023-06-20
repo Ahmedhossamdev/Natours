@@ -6,6 +6,12 @@ const AppError = require('./../utils/appError');
 const factory = require('./handlerFactory');
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
+exports.isBooked = catchAsync(async (req, res, next) => {
+
+  const booking = await Booking.find({ user: req.user.id, tour: req.body.tour });
+  if (!booking.length) return next(new AppError('You must buy this tour to review it', 401));
+  next();
+});
 
 exports.getCheckoutSession =  catchAsync(async (req, res , next) => {
    // 1) Get the currently booked store

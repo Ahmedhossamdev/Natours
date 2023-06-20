@@ -32,7 +32,7 @@ if (mapBox) {
 
 if (signupForm) {
 
-    signupForm.addEventListener('submit', async e => {
+  signupForm.addEventListener('submit', async e => {
     e.preventDefault();
 
     document.querySelector('.btn--green').textContent = 'Loading...';

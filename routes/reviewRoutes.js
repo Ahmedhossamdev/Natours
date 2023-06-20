@@ -8,8 +8,10 @@ const {
   updateReview,
   setTourUserIds,
   getReview,
+
 } = require('../controllers/reviewController');
 const { protect ,restrictTo } = require('../controllers/authController');
+const { isBooked } = require('../controllers/bookingController');
 
 
 //GET /tour/3213213/reviews
@@ -18,7 +20,7 @@ router.use(protect)
 router
   .route('/')
   .get(getAllReviews)
-  .post(restrictTo('user'),setTourUserIds,createReview);
+  .post(restrictTo('user'),setTourUserIds, isBooked ,createReview);
 
 
 
