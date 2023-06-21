@@ -173,8 +173,8 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
   //   const message = `Forgot your password? Submit A Patch requset with your new password and passwordConfirm to :
   // ${resetURL}.\nIf you didn't forgot your password, please ignore this email!`;
     await new  Email(user , resetURL).sendPasswordReset();
-    return res.status(200).json({
-      stats: 'success',
+    res.status(200).json({
+      status: 'success',
       message: 'Token sent to email!'
     });
   }
