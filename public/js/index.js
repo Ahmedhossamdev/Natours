@@ -7,6 +7,15 @@ import { displayMap } from './mapbox';
 import { updateSettings } from './updateSettings';
 import { bookTour } from './stripe';
 
+import {
+  enable as enableDarkMode,
+  disable as disableDarkMode,
+  auto as followSystemColorScheme,
+  exportGeneratedCSS as collectCSS,
+  isEnabled as isDarkReaderEnabled,
+} from 'darkreader';
+
+
 
 
 // DOM ELEMENTS
@@ -24,6 +33,43 @@ const forgotPasswordForm = document.querySelector('.form--forgotPassword');
 const userDataForm = document.querySelector('.form-user-data');
 const userPasswordForm = document.querySelector('.form-user-password');
 const bookBtn = document.getElementById('book-tour');
+
+
+
+const darkModeButton = document.getElementById('dark-mode-button');
+
+// Retrieve user preference from localStorage
+const userPreference = localStorage.getItem('darkMode');
+
+if (userPreference === 'enabled') {
+  enableDarkMode({
+    brightness: 100,
+    contrast: 90,
+    sepia: 10,
+  });
+  darkModeButton.classList.add('active');
+}
+
+darkModeButton.addEventListener('click', toggleDarkMode);
+
+function toggleDarkMode() {
+  if (isDarkReaderEnabled()) {
+    disableDarkMode();
+    darkModeButton.classList.remove('active');
+    // Remove user preference from localStorage
+    localStorage.removeItem('darkMode');
+  } else {
+    enableDarkMode({
+      brightness: 100,
+      contrast: 90,
+      sepia: 10,
+    });
+    darkModeButton.classList.add('active');
+    // Save user preference to localStorage
+    localStorage.setItem('darkMode', 'enabled');
+  }
+}
+
 
 if (mapBox) {
   const locations = JSON.parse(mapBox.dataset.locations);

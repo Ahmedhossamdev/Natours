@@ -1372,3 +1372,37 @@ body {
   -webkit-transform: translateY(-2px);
   transform: translateY(-2px);
 }
+
+.dark-mode-toggle {
+  background-color: transparent;
+  border: none;
+  position: relative;
+  width: 32px;
+  height: 32px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.dark-mode-indicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #777;
+  border: 2px solid #777;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.dark-mode-toggle.active .dark-mode-indicator {
+  background-color: #f1c40f;
+  border-color: #f1c40f;
+}
+
+.dark-mode-stripe {
+  background-color: #1a1a1a; /* Adjust background color to match your dark mode theme */
+  color: #fff; /* Adjust text color to match your dark mode theme */
+  /* Add additional styles as needed */
+}
