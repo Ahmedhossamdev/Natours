@@ -169,7 +169,7 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
     //   message
     // });
 
-    const resetURL = `${req.protocol}://${req.get('host')}/resetPassword/${resetToken}}`;
+    const resetURL = `${req.protocol}://${req.get('host')}/resetPassword/${resetToken}`;
   //   const message = `Forgot your password? Submit A Patch requset with your new password and passwordConfirm to :
   // ${resetURL}.\nIf you didn't forgot your password, please ignore this email!`;
     await new  Email(user , resetURL).sendPasswordReset();
