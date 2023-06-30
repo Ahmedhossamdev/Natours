@@ -54,4 +54,9 @@ process.on('uncaughtException', (err) => {
     process.exit(1); // Terminate the process with a non-zero exit code
 });
 
-
+process.on('SIGTERM' , () => {
+   console.log('SIGTERM RECEIVED, SHUTTING DOWN');
+   server.close(() =>{
+       console.log('Process terminated successfully');
+   });
+});
