@@ -26,9 +26,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Implement of cros
 app.use(cors());
-app.use(cors({
-  origin: 'https://www.natours.com'
-}));
+// app.use(cors({
+//   origin: 'https://www.natours.com'
+// }));
 
 app.options('*' , cors());
 
