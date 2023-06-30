@@ -25,12 +25,19 @@ app.use(express.static(path.join(__dirname, 'public')));
 // 1) MIDDLEWARES
 
 // Implement of cros
-app.use(cors());
-// app.use(cors({
-//   origin: 'https://www.natours.com'
-// }));
+// app.use(cors());
+// // app.use(cors({
+// //   origin: 'https://www.natours.com'
+// // }));
+//
+// app.options('*' , cors());
 
-app.options('*' , cors());
+const corsOptions = {
+  origin: ['https://natours-ijrr.onrender.com', 'https://www.example.com', 'https://www.anotherdomain.com'],
+};
+
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 
 // app.options('/api/v1/tours/:id' , cors());
 // Security http headers
