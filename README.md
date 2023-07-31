@@ -32,7 +32,7 @@ Live demo (Feel free to visit) 👉 : [Natours](https://natours-ijrr.onrender.co
 
 
 #### Payment Process:
-![Alt Text]https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmR6MGJsb3FxMms4emw5NjI2d3k4cmtmenVqZGczMTY3eXMyaWlyayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/IlkchDlYu2ToQA0R8r/giphy.gif
+![Alt Text](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmR6MGJsb3FxMms4emw5NjI2d3k4cmtmenVqZGczMTY3eXMyaWlyayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/IlkchDlYu2ToQA0R8r/giphy.gif)
 #### Booked Tours:
 ![bookedTours](rsz_bookedtours.png)
 
