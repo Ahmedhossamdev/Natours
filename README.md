@@ -1,9 +1,9 @@
-![image](https://github.com/Ahmedhossamdev/Natours/assets/99441866/c607e707-d2c8-4873-a34e-0905fb17116f)# Natours
+# Natours
 
 ## An Awesome Tour Booking Site Built on Top of NodeJS
 
 ### Deployed Version
-Live demo (Feel free to visit) 👉 : [Natours Demo](https://natours-ijrr.onrender.com/)
+Live demo (Feel free to visit) 👉 : [Natours](https://natours-ijrr.onrender.com/)
 
 ### Key Features
 - Authentication and Authorization
@@ -25,7 +25,7 @@ Live demo (Feel free to visit) 👉 : [Natours Demo](https://natours-ijrr.onrend
 
 
 #### Tour Details:
-![tourOverview](tourOverviewonline-video-cutterc.gif)
+[![tourOverview]()](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdG8wdDNwZmRoNDNrbXVkbTk2MWoydGxkZzAwOTdyZnV3cnE0djkzZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/kPjTe3rUhiVUgO1cXz/giphy.gif)
 
 #### Payment Process:
 ![paymentProcess](paymentprocess-1-ycnhrceamp4-7fW.gif)
