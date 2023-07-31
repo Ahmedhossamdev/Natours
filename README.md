@@ -25,7 +25,8 @@ Live demo (Feel free to visit) 👉 : [Natours](https://natours-ijrr.onrender.co
 
 
 #### Tour Details:
-![Alt Text](https://i.imgur.com/jY52xnr.gif)
+<img src="https://i.imgur.com/jY52xnr.gif"/>
+
 
 
 
