@@ -1,1 +1,68 @@
+# Natours
 
+## An Awesome Tour Booking Site Built on Top of NodeJS
+
+### Deployed Version
+Live demo (Feel free to visit) 👉 : [Natours Demo](https://natours-ijrr.onrender.com/)
+
+### Key Features
+- Authentication and Authorization
+- Sign up with Email Verification
+- Login and Logout
+- Forget Password and Reset Password
+- Tour Booking Management
+- Interactive Tour Map with User Reviews and Ratings
+- User Profile Customization
+- Secure Credit Card Payment
+- Dark Mode for Enhanced User Experience
+
+
+### Demonstration
+#### Home Page:
+![natoursHomePage](natoursHomePageonline-video-cutt.gif)
+
+#### Tour Details:
+![tourOverview](tourOverviewonline-video-cutterc.gif)
+
+#### Payment Process:
+![paymentProcess](paymentprocess-1-ycnhrceamp4-7fW.gif)
+
+#### Booked Tours:
+![bookedTours](rsz_bookedtours.png)
+
+#### User Profile:
+![userProfile](rsz_userprofile.png)
+
+#### Admin Profile:
+![adminProfile](rsz_adminprofile.png)
+
+### How To Use
+1. Book a tour
+2. Login to the site
+3. Search for tours that you want to book
+4. Proceed to the payment checkout page
+5. Enter the card details (Test Mood):
+   - Card No. : 4242 4242 4242 4242
+   - Expiry date: 02 / 22
+   - CVV: 222
+6. Finished!
+7. Manage your booking
+8. Check the tour you have booked in the "Manage Booking" page in your user settings. You'll be automatically redirected to this page after you have completed the booking.
+9. Update your profile
+10. You can update your own username, profile photo, email, and password.
+
+### API Usage
+Before using the API, you need to set the variables in Postman depending on your environment (development or production). Simply add:
+- `{{URL}}` with your hostname as the value (Eg. http://127.0.0.1:3000 or http://www.example.com)
+- `{{password}}` with your user password as the value.
+Check Natours API Documentation for more info.
+
+API Features:
+- Tours List 👉 [Tours](https://natours-ijrr.onrender.com/api/v1/tours)
+- Tours State 👉 [Tour Stats](https://natours-ijrr.onrender.com/v1/tours/tour-stats)
+- Get Top 5 Cheap Tours 👉 [Top 5 Cheap Tours](https://natours-ijrr.onrender.com/api/v1/tours/top-5-cheap)
+- Get Tours Within Radius 👉 [Tours Within Radius](https://natours-ijrr.onrender.com/api/v1/tours/tours-within/200/center/34.098453,-118.096327/unit/mi)
+
+### Deployment
+The website is deployed with Git into render:
+https://natours-ijrr.onrender.com/
