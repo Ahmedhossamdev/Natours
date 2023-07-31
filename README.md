@@ -25,7 +25,7 @@ Live demo (Feel free to visit) 👉 : [Natours](https://natours-ijrr.onrender.co
 
 
 #### Tour Details:
-![Alt Text](https://media.giphy.com/media/kPjTe3rUhiVUgO1cXz/giphy.gif)
+![Alt Text](https://gifyu.com/image/Scqr0)
 
 
 #### Payment Process:
