@@ -25,7 +25,7 @@ Live demo (Feel free to visit) 👉 : [Natours](https://natours-ijrr.onrender.co
 
 
 #### Tour Details:
-![Alt Text](https://gifyu.com/image/Scqr0)
+![Alt Text]([https://gifyu.com/image/Scqr0](https://i.imgur.com/jY52xnr.gifv))
 
 
 #### Payment Process:
@@ -59,7 +59,8 @@ Live demo (Feel free to visit) 👉 : [Natours](https://natours-ijrr.onrender.co
 Before using the API, you need to set the variables in Postman depending on your environment (development or production). Simply add:
 - `{{URL}}` with your hostname as the value (Eg. http://127.0.0.1:3000 or http://www.example.com)
 - `{{password}}` with your user password as the value.
-Check Natours API Documentation for more info.
+Check Natours API Documentation for more info:
+
 
 API Features:
 - Tours List 👉 [Tours](https://natours-ijrr.onrender.com/api/v1/tours)
