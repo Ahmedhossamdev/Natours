@@ -41,7 +41,7 @@ Live demo (Feel free to visit) 👉 : [Natours](https://natours-ijrr.onrender.co
 #### Admin Profile:
 ![adminProfile](rsz_adminprofile.png)
 
-### How To Use
+## How To Use
 1. Book a tour
 2. Login to the site
 3. Search for tours that you want to book
