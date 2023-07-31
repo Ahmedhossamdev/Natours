@@ -1,4 +1,4 @@
-# Natours
+![image](https://github.com/Ahmedhossamdev/Natours/assets/99441866/c607e707-d2c8-4873-a34e-0905fb17116f)# Natours
 
 ## An Awesome Tour Booking Site Built on Top of NodeJS
 
@@ -19,8 +19,10 @@ Live demo (Feel free to visit) 👉 : [Natours Demo](https://natours-ijrr.onrend
 
 ### Demonstration
 #### Home Page:
-![natoursHomePage]![image](https://github.com/Ahmedhossamdev/Natours/assets/99441866/59350cce-2940-40fc-912d-adb8ddf41d97)
-)
+![image](https://github.com/Ahmedhossamdev/Natours/assets/99441866/758823b1-d1a4-4e66-9a69-fd77d0abe10e)
+![image](https://github.com/Ahmedhossamdev/Natours/assets/99441866/b633488b-892b-4cb6-95d0-35d5ceebfdfb)
+
+
 
 #### Tour Details:
 ![tourOverview](tourOverviewonline-video-cutterc.gif)
