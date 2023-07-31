@@ -34,13 +34,12 @@ Live demo (Feel free to visit) 👉 : [Natours](https://natours-ijrr.onrender.co
 #### Payment Process:
 ![Alt Text](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmR6MGJsb3FxMms4emw5NjI2d3k4cmtmenVqZGczMTY3eXMyaWlyayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/IlkchDlYu2ToQA0R8r/giphy.gif)
 #### Booked Tours:
-![bookedTours](rsz_bookedtours.png)
+![image](https://github.com/Ahmedhossamdev/Natours/assets/99441866/4a5b3780-c716-46bf-9df6-c9d522c81f5c)
 
 #### User Profile:
-![userProfile](rsz_userprofile.png)
+![image](https://github.com/Ahmedhossamdev/Natours/assets/99441866/9f5a1baa-c3fd-4e27-9250-6f51313e553c)
 
-#### Admin Profile:
-![adminProfile](rsz_adminprofile.png)
+
 
 ## How To Use
 1. Book a tour
