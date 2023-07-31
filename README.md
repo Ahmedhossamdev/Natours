@@ -19,7 +19,8 @@ Live demo (Feel free to visit) 👉 : [Natours Demo](https://natours-ijrr.onrend
 
 ### Demonstration
 #### Home Page:
-![natoursHomePage](natoursHomePageonline-video-cutt.gif)
+![natoursHomePage]![image](https://github.com/Ahmedhossamdev/Natours/assets/99441866/59350cce-2940-40fc-912d-adb8ddf41d97)
+)
 
 #### Tour Details:
 ![tourOverview](tourOverviewonline-video-cutterc.gif)
